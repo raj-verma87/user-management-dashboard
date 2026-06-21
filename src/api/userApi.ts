@@ -6,7 +6,16 @@ export const getUsers = () =>
 
 export const createUser = (
   user: User
-) => api.post("/users", user);
+) => {
+  const [firstName, ...lastNameParts] =
+    user.name.split(" ");
+
+  return api.post("/users/add", {
+    firstName,
+    lastName: lastNameParts.join(" "),
+    email: user.email,
+  });
+};
 
 export const updateUser = (
   id: number,

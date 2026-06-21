@@ -58,7 +58,7 @@ function Users() {
         newUser,
       ]);
     };
-
+    console.log(users);
   const handleDeleteUser =
     async (id: number) => {
       await removeUser(id);
